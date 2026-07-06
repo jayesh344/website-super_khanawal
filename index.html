@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Khanawal — Veg &amp; Non-Veg Dining</title>
+<meta name="description" content="Super Khanawal — home-style veg &amp; non-veg thalis, tandoor specials and family recipes served fresh every day.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231c1c1c'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23e3a008' font-family='Georgia'%3ESK%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Gallery photo styling (added so real photos display correctly inside the existing tiles) */
+  .gallery-tile{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:180px;}
+  .gallery-tile img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .5s ease;
+  }
+  .gallery-tile:hover img{transform:scale(1.06);}
+  .gallery-tile span{
+    position:relative;
+    z-index:2;
+    align-self:flex-end;
+    margin:0 0 14px 16px;
+    color:#fff;
+    font-weight:600;
+    text-shadow:0 2px 8px rgba(0,0,0,.65);
+  }
+  .gallery-tile::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 45%);
+    z-index:1;
+  }
+</style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="90" tabindex="0">
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#home">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 2v8a2 2 0 0 0 2 2v10M6 2v6M9 2v6M12 2v8a2 2 0 0 1-2 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M18 2c-2 2-2 6-2 8s.5 3 2 3 2-1 2-3-0-6-2-8zM18 13v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="brand-text">Super Khanawal<sup>™</sup></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+      <i class="bi bi-list"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navContent">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item ms-lg-2">
+          <a href="#contact" class="btn btn-reserve">Reserve a Table</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header id="home" class="hero">
+  <div class="hero-texture"></div>
+  <div class="container hero-inner">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <div class="status-chip" id="openStatusChip">
+          <span class="dot" id="statusDot"></span>
+          <span id="statusText">Checking hours…</span>
+        </div>
+        <h1 class="hero-title">Ghar jaisa khana,<br><span>restaurant jaisa style.</span></h1>
+        <p class="hero-sub">Slow-cooked dals, tandoor specials and thalis made the way your nani made them — plated fresh, served fast, at Super Khanawal.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#menu" class="btn btn-gold">View Menu <i class="bi bi-arrow-down-short"></i></a>
+          <a href="#contact" class="btn btn-outline-cream">Reserve a Table</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>2009</strong><span>Serving since</span></div>
+          <div><strong>60+</strong><span>Dishes on the menu</span></div>
+          <div><strong>4.7<i class="bi bi-star-fill"></i></strong><span>Average rating</span></div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="thali-card">
+          <div class="thali-ring"></div>
+          <div class="thali-plate">
+            <div class="thali-well thali-well--dal"><i class="bi bi-egg-fried"></i><span>Dal Tadka</span></div>
+            <div class="thali-well thali-well--paneer"><i class="bi bi-fire"></i><span>Paneer Tikka</span></div>
+            <div class="thali-well thali-well--rice"><i class="bi bi-basket2"></i><span>Jeera Rice</span></div>
+            <div class="thali-well thali-well--curry"><i class="bi bi-cup-hot"></i><span>Butter Chicken</span></div>
+            <div class="thali-well thali-well--roti"><i class="bi bi-circle"></i><span>Tandoori Roti</span></div>
+            <div class="thali-well thali-well--sweet"><i class="bi bi-star"></i><span>Gulab Jamun</span></div>
+          </div>
+          <p class="thali-caption">Today's Special Thali</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="section section-about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="eyebrow">Our Story</span>
+        <h2 class="section-title">A dhaba table, kept honest for 15 years.</h2>
+        <p class="section-text">Super Khanawal started as a single roadside counter with four benches and one tawa. The recipes haven't changed since — recipes that were figured out by our founder's mother, cooked with mustard oil, hand-ground masalas, and a lot of patience. What's changed is the room around it: real tables, real cutlery, and the same food you'd get called home for.</p>
+        <div class="about-points">
+          <div class="about-point">
+            <i class="bi bi-egg2"></i>
+            <div>
+              <h6>Fresh, not frozen</h6>
+              <p>Every gravy is started from scratch each morning — nothing sits overnight.</p>
+            </div>
+          </div>
+          <div class="about-point">
+            <i class="bi bi-book"></i>
+            <div>
+              <h6>Family recipes</h6>
+              <p>Passed down, not printed — three generations of the same masala box.</p>
+            </div>
+          </div>
+          <div class="about-point">
+            <i class="bi bi-lightning-charge"></i>
+            <div>
+              <h6>Quick counter service</h6>
+              <p>Order to table in under 12 minutes, even during the lunch rush.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="about-visual">
+          <div class="spice-jar spice-jar--1"><span>Haldi</span></div>
+          <div class="spice-jar spice-jar--2"><span>Jeera</span></div>
+          <div class="spice-jar spice-jar--3"><span>Mirch</span></div>
+          <div class="spice-jar spice-jar--4"><span>Dhania</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MENU ============ -->
+<section id="menu" class="section section-menu">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="eyebrow">The Menu</span>
+      <h2 class="section-title">What's cooking today</h2>
+      <p class="section-text mx-auto" style="max-width:560px;">Prices are per plate, family-size portions available on request.</p>
+    </div>
+
+    <ul class="nav nav-pills justify-content-center menu-tabs mb-4" id="menuTabs">
+      <li class="nav-item"><button class="nav-link active" data-menu="veg">Veg</button></li>
+      <li class="nav-item"><button class="nav-link" data-menu="nonveg">Non-Veg</button></li>
+      <li class="nav-item"><button class="nav-link" data-menu="tandoor">Tandoor &amp; Breads</button></li>
+      <li class="nav-item"><button class="nav-link" data-menu="drinks">Beverages &amp; Sweets</button></li>
+    </ul>
+
+    <div class="menu-panel active" data-panel="veg">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="receipt-card">
+            <div class="receipt-row"><span>Dal Tadka</span><i></i><span class="price">₹149</span></div>
+            <div class="receipt-row"><span>Paneer Butter Masala</span><i></i><span class="price">₹219</span></div>
+            <div class="receipt-row"><span>Veg Kolhapuri</span><i></i><span class="price">₹199</span></div>
+            <div class="receipt-row"><span>Chole Masala</span><i></i><span class="price">₹169</span></div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="receipt-card">
+            <div class="receipt-row"><span>Malai Kofta</span><i></i><span class="price">₹229</span></div>
+            <div class="receipt-row"><span>Veg Thali (Full)</span><i></i><span class="price">₹259</span></div>
+            <div class="receipt-row"><span>Jeera Aloo</span><i></i><span class="price">₹139</span></div>
+            <div class="receipt-row"><span>Mixed Veg Curry</span><i></i><span class="price">₹159</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-panel" data-panel="nonveg">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="receipt-card">
+            <div class="receipt-row"><span>Butter Chicken</span><i></i><span class="price">₹289</span></div>
+            <div class="receipt-row"><span>Chicken Tikka Masala</span><i></i><span class="price">₹299</span></div>
+            <div class="receipt-row"><span>Mutton Rogan Josh</span><i></i><span class="price">₹379</span></div>
+            <div class="receipt-row"><span>Egg Curry</span><i></i><span class="price">₹179</span></div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="receipt-card">
+            <div class="receipt-row"><span>Chicken Kolhapuri</span><i></i><span class="price">₹269</span></div>
+            <div class="receipt-row"><span>Non-Veg Thali (Full)</span><i></i><span class="price">₹339</span></div>
+            <div class="receipt-row"><span>Fish Curry</span><i></i><span class="price">₹309</span></div>
+            <div class="receipt-row"><span>Chicken Handi</span><i></i><span class="price">₹319</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-panel" data-panel="tandoor">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="receipt-card">
+            <div class="receipt-row"><span>Tandoori Roti</span><i></i><span class="price">₹18</span></div>
+            <div class="receipt-row"><span>Butter Naan</span><i></i><span class="price">₹42</span></div>
+            <div class="receipt-row"><span>Paneer Tikka</span><i></i><span class="price">₹239</span></div>
+            <div class="receipt-row"><span>Chicken Tikka</span><i></i><span class="price">₹269</span></div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="receipt-card">
+            <div class="receipt-row"><span>Tandoori Chicken (Half)</span><i></i><span class="price">₹259</span></div>
+            <div class="receipt-row"><span>Seekh Kebab</span><i></i><span class="price">₹259</span></div>
+            <div class="receipt-row"><span>Missi Roti</span><i></i><span class="price">₹32</span></div>
+            <div class="receipt-row"><span>Laccha Paratha</span><i></i><span class="price">₹48</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-panel" data-panel="drinks">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="receipt-card">
+            <div class="receipt-row"><span>Masala Chaas</span><i></i><span class="price">₹49</span></div>
+            <div class="receipt-row"><span>Sweet Lassi</span><i></i><span class="price">₹69</span></div>
+            <div class="receipt-row"><span>Fresh Lime Soda</span><i></i><span class="price">₹59</span></div>
+            <div class="receipt-row"><span>Masala Chai</span><i></i><span class="price">₹29</span></div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="receipt-card">
+            <div class="receipt-row"><span>Gulab Jamun (2 pc)</span><i></i><span class="price">₹69</span></div>
+            <div class="receipt-row"><span>Gajar Halwa</span><i></i><span class="price">₹89</span></div>
+            <div class="receipt-row"><span>Kheer</span><i></i><span class="price">₹79</span></div>
+            <div class="receipt-row"><span>Rasmalai (2 pc)</span><i></i><span class="price">₹89</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="gallery" class="section section-gallery">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="eyebrow">Inside Super Khanawal</span>
+      <h2 class="section-title">A peek at the counter</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-tile gallery-tile--tall">
+        <img src="https://images.unsplash.com/photo-1742281257707-0c7f7e5ca9c6?auto=format&fit=crop&w=900&q=80" alt="Thali spread with rice, dal and curries" loading="lazy">
+        <span>Thali spread</span>
+      </div>
+      <div class="gallery-tile">
+        <img src="https://images.unsplash.com/photo-1763951718950-c536b1295213?auto=format&fit=crop&w=900&q=80" alt="Chef baking naan in a tandoor oven" loading="lazy">
+        <span>Tandoor in action</span>
+      </div>
+      <div class="gallery-tile">
+        <img src="https://images.unsplash.com/photo-1745562294524-d01e32081b23?auto=format&fit=crop&w=900&q=80" alt="Restaurant dining hall with tables and chairs" loading="lazy">
+        <span>Dining hall</span>
+      </div>
+      <div class="gallery-tile">
+        <img src="https://images.unsplash.com/photo-1711153419402-336ee48f2138?auto=format&fit=crop&w=900&q=80" alt="Freshly served roti and Indian bread" loading="lazy">
+        <span>Fresh rotis</span>
+      </div>
+      <div class="gallery-tile gallery-tile--tall">
+        <img src="https://images.unsplash.com/photo-1653212452950-63bdcf07fd04?auto=format&fit=crop&w=900&q=80" alt="Guests seated at tables during a busy evening" loading="lazy">
+        <span>Evening rush</span>
+      </div>
+      <div class="gallery-tile">
+        <img src="https://images.unsplash.com/photo-1574586595680-e7388293c9bb?auto=format&fit=crop&w=900&q=80" alt="Bowls of chutneys and condiments" loading="lazy">
+        <span>Chutney counter</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section id="reviews" class="section section-reviews">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="eyebrow">What People Say</span>
+      <h2 class="section-title">Straight from our regulars</h2>
+    </div>
+    <div id="reviewCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="review-card mx-auto">
+            <div class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p>"The dal tadka tastes exactly like home. I've been coming here every week for three years now."</p>
+            <span>— Rohit M.</span>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="review-card mx-auto">
+            <div class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p>"Fast service even during lunch rush, and the thali is genuinely filling. Best value in the area."</p>
+            <span>— Sneha K.</span>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="review-card mx-auto">
+            <div class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
+            <p>"Butter chicken here beats every fine-dine version I've had. Simple room, serious food."</p>
+            <span>— Arjun P.</span>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#reviewCarousel" data-bs-slide="prev">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#reviewCarousel" data-bs-slide="next">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="section section-contact">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-5">
+        <span class="eyebrow">Visit Us</span>
+        <h2 class="section-title">Reserve a table</h2>
+        <p class="section-text">Call ahead for groups above 6, or just walk in — we always keep a few tables free for regulars.</p>
+        <ul class="contact-list">
+          <li><i class="bi bi-geo-alt"></i> 14, MG Road, Near Central Market, Delhi</li>
+          <li><i class="bi bi-telephone"></i> +91 98765 43210</li>
+          <li><i class="bi bi-clock"></i> Mon–Sun, 11:00 AM – 11:00 PM</li>
+        </ul>
+        <div class="social-row">
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <form class="reserve-form" id="reserveForm">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Phone</label>
+              <input type="tel" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Date</label>
+              <input type="date" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Guests</label>
+              <input type="number" min="1" value="2" class="form-control" required>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Note (optional)</label>
+              <textarea class="form-control" rows="2" placeholder="Anything we should know?"></textarea>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-gold w-100">Confirm Reservation</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-receipt">
+      <div class="footer-receipt-top">
+        <span class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 2v8a2 2 0 0 0 2 2v10M6 2v6M9 2v6M12 2v8a2 2 0 0 1-2 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M18 2c-2 2-2 6-2 8s.5 3 2 3 2-1 2-3-0-6-2-8zM18 13v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span>Super Khanawal™</span>
+      </div>
+      <p class="footer-tag">Veg &amp; Non-Veg · Since 2009</p>
+      <p class="footer-copy">© <span id="year"></span> Super Khanawal. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="#contact" class="fab-reserve d-lg-none"><i class="bi bi-calendar-check"></i></a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
